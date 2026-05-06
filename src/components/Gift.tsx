@@ -5,11 +5,18 @@ import { Copy, Gift as GiftIcon, CheckCircle2 } from 'lucide-react';
 export function Gift() {
   const [copiedAccount, setCopiedAccount] = useState<string | null>(null);
 
-  const bankAccount = {
-    bank: "BCA",
-    accountNumber: "1234567890",
-    name: "INE HIDAYATI"
-  };
+  const bankAccounts = [
+    {
+      bank: "BSI",
+      accountNumber: "7265335858",
+      name: "Ine Hidayati"
+    },
+    {
+      bank: "Mandiri",
+      accountNumber: "1340027818490",
+      name: "Tomi Jepi"
+    }
+  ];
 
   const copyToClipboard = async (text: string) => {
     try {
@@ -41,41 +48,46 @@ export function Gift() {
           </p>
         </motion.div>
 
-        <motion.div
-           initial={{ opacity: 0, scale: 0.95 }}
-           whileInView={{ opacity: 1, scale: 1 }}
-           viewport={{ once: true }}
-           transition={{ duration: 0.6 }}
-           className="w-full bg-white p-8 rounded-3xl shadow-sm border border-secondary/20 flex flex-col items-center text-center relative overflow-hidden"
-        >
-          {/* Subtle decoration */}
-          <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
-          
-          <h3 className="font-bold text-xl text-accent mb-2">BANK {bankAccount.bank}</h3>
-          <p className="text-3xl font-mono tracking-widest text-text-main mb-2">
-            {bankAccount.accountNumber}
-          </p>
-          <p className="text-sm text-text-main/70 uppercase tracking-widest mb-8">
-            a.n {bankAccount.name}
-          </p>
+        <div className="w-full flex flex-col gap-6">
+          {bankAccounts.map((account, index) => (
+            <motion.div
+               key={index}
+               initial={{ opacity: 0, scale: 0.95 }}
+               whileInView={{ opacity: 1, scale: 1 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.6, delay: index * 0.1 }}
+               className="w-full bg-white p-8 rounded-3xl shadow-sm border border-secondary/20 flex flex-col items-center text-center relative overflow-hidden"
+            >
+              {/* Subtle decoration */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+              
+              <h3 className="font-bold text-xl text-accent mb-2">BANK {account.bank}</h3>
+              <p className="text-3xl font-mono tracking-widest text-text-main mb-2">
+                {account.accountNumber}
+              </p>
+              <p className="text-sm text-text-main/70 uppercase tracking-widest mb-8">
+                a.n {account.name}
+              </p>
 
-          <button
-            onClick={() => copyToClipboard(bankAccount.accountNumber)}
-            className="group flex Items-center justify-center gap-2 px-6 py-2.5 bg-bg-main border border-secondary/50 text-accent rounded-full hover:bg-secondary hover:text-white transition-all text-sm font-medium tracking-wide"
-          >
-            {copiedAccount === bankAccount.accountNumber ? (
-              <>
-                <CheckCircle2 className="w-4 h-4" />
-                <span>Berhasil Disalin</span>
-              </>
-            ) : (
-              <>
-                <Copy className="w-4 h-4" />
-                <span>Salin Nomor Rekening</span>
-              </>
-            )}
-          </button>
-        </motion.div>
+              <button
+                onClick={() => copyToClipboard(account.accountNumber)}
+                className="group flex Items-center justify-center gap-2 px-6 py-2.5 bg-bg-main border border-secondary/50 text-accent rounded-full hover:bg-secondary hover:text-white transition-all text-sm font-medium tracking-wide"
+              >
+                {copiedAccount === account.accountNumber ? (
+                  <>
+                    <CheckCircle2 className="w-4 h-4" />
+                    <span>Berhasil Disalin</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-4 h-4" />
+                    <span>Salin Nomor Rekening</span>
+                  </>
+                )}
+              </button>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

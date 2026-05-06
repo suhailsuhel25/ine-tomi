@@ -1,5 +1,7 @@
 import { motion } from 'motion/react';
 import { Heart } from 'lucide-react';
+import IneImage from '../Assets/Foto-Ine.png';
+import TomiImage from '../Assets/Foto-Tomi.png';
 
 export function Couple() {
   return (
@@ -29,10 +31,7 @@ export function Couple() {
             className="flex-1 flex flex-col items-center"
           >
             <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-primary shadow-xl mb-6 bg-primary/30 flex items-center justify-center">
-              {/* Placeholder image */}
-              <div className="w-full h-full bg-gradient-to-br from-secondary/20 to-accent/20 flex flex-col items-center justify-center text-accent/50">
-                <span className="font-script text-4xl">I</span>
-              </div>
+              <img src={IneImage} alt="Ine Hidayati" className="w-full h-full object-cover object-top" />
             </div>
             <h2 className="font-script text-4xl text-accent mb-2">Ine Hidayati</h2>
             <p className="text-sm text-text-main/70 mb-1">Putri dari</p>
@@ -59,10 +58,7 @@ export function Couple() {
              className="flex-1 flex flex-col items-center"
           >
             <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-primary shadow-xl mb-6 bg-primary/30 flex items-center justify-center">
-               {/* Placeholder image */}
-               <div className="w-full h-full bg-gradient-to-br from-secondary/20 to-accent/20 flex flex-col items-center justify-center text-accent/50">
-                <span className="font-script text-4xl">T</span>
-              </div>
+               <img src={TomiImage} alt="Tomi Jepi" className="w-full h-full object-cover object-top" />
             </div>
             <h2 className="font-script text-4xl text-accent mb-2">Tomi Jepi</h2>
             <p className="text-sm text-text-main/70 mb-1">Putra dari</p>
