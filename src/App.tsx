@@ -5,7 +5,6 @@ import { Couple } from './components/Couple';
 import { Events } from './components/Events';
 import { RSVP } from './components/RSVP';
 import { Guestbook } from './components/Guestbook';
-import { Gift } from './components/Gift';
 import { Footer } from './components/Footer';
 import { MusicPlayer } from './components/MusicPlayer';
 import bgMusic from './Assets/pure-love-304010.mp3';
@@ -49,7 +48,6 @@ export default function App() {
         <Couple />
         <Events />
         <RSVP />
-        <Gift />
         <Guestbook />
         <Footer />
       </main>
